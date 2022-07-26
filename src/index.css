@@ -1,21 +1,20 @@
-body { 
+body {
+  background-color: white; 
   font-family: Roboto;
 }
 
 .search-container{
-  margin: 0px auto;
-  padding: 0 20px;
-  display: grid;
-  grid-gap: 10px;
-  padding: 0px 10px;
+  margin: 0px 10px;
+  padding: 0;
   align-items: center;
-  justify-content: center;
+  flex: 1;
 }
 
 .search{
-  background: white;
-  margin-right: 20px;
-
+  display: flex;
+  justify-content: center;
+  padding-right: 20px;
+  flex: 1;
 }
 .search input{
   padding: 10px;
@@ -29,44 +28,45 @@ body {
 }
 
 .search-btn button{
-  background-color: #363635;
+  display: flex;
+  text-align: center;
+  background-color: #363636;
   border: none;
   border-radius: 10px;
   height: 100%;
   color: white;
-  padding: 10px 12px;
+  padding: 7px 9px;
+  margin: 0 auto;
 }
-.datos-container{
+.data-container{
   display: flex;
+  justify-content: center;
+}
+.data{
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 3px;
-  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
 }
-.datos-container img{
+.data img{
   width: 200px;
   height: 200px;
 }
 
-.h3{
-
+.data-info{
+  display: grid;
 }
 
-.datos div{
+.data div{
   padding: 5px;
   text-transform: capitalize;
-}
-.pokedex-list{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  padding: 0px 10px;
+  
 }
 
 .pokemon-card{
-  grid-template-columns: repeat(3, 1fr);
-  display: grid;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 3px;
+  display: flex;
 }
 
 .pokemon-img-container{
@@ -74,19 +74,12 @@ body {
 }
 
 .pokemon-img{
+  background-color: #d9d9d9;
   margin-top: 15px;
   margin-left: 5px;
-  width: 70px;
-  height: 70px;
-}
-
-.pokemon-type{
-  display: flex;
-}
-
-.pokemon-type-text{
-  margin-right: 10px;
-  text-transform: capitalize;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
 }
 
 .card-body{
@@ -114,23 +107,186 @@ body {
   text-transform: capitalize;
 }
 
-.pagination{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
 .menu-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   padding: 10px 10px 10px 10px;
   flex: 1;
-  text-align: center;
+  font-size: 30px;
 }
 
 .card-container{
   display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+}
+
+.container-input{
+  display: flex;
+  justify-content: center;
+}
+.container-btn{
+  display: flex;
+  justify-content: center;
+}
+
+.name{
+  margin: 10px;
+}
+.type{
+  margin: 10px;
+}
+.weight{
+  margin: 10px;
+}
+.abilities{
+  margin: 10px;;
+
+}
+.exp{
+  margin: 10px;
+}
+.move{
+  margin: 10px;
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
 
+.links{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 20px;
+}
 
+.link-pokemon{
+  margin: 20px;
+}
+
+.link-lista{
+  margin: 20px;
+}
+
+.link-combate{
+  margin: 20px;
+}
+
+.link-historial{
+  margin: 20px;
+}
+
+.img-container{
+  display: flex;
+
+}
+
+.pokemon-box{
+  display: flex;
+  justify-content: center;
+}
+
+
+.pokemon-battle-container h1{
+  display: flex;
+  justify-content: center;
+}
+
+.pokemon-1-container{
+  margin: 50px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  padding: 15px;
+}
+
+.pokemon-2-container{
+  margin: 50px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  padding: 15px;
+}
+
+.battle1-container{
+  text-transform: capitalize;
+  margin-top: 10px;
+}
+
+.battle2-container{
+  text-transform: capitalize;
+  margin-top: 10px;
+}
+
+.battle1-container img{
+  height: 150px;
+  width: 150px;
+  background-color: #cacaca;
+  margin-left: 50px;
+  border-radius: 8px;
+}
+
+.battle2-container img{
+  height: 150px;
+  width: 150px;
+  background-color: #cacaca;
+  margin-left: 50px;
+  border-radius: 8px;
+}
+
+.battle-1-box button{
+  background-color: #363636;
+  border: none;
+  border-radius: 10px;
+  height: 100%;
+  color: white;
+  padding: 7px 9px;
+  margin: 0 auto;
+}
+
+.pick-box1 button{
+  background-color: #363636;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 10px 12px;
+  margin: 0 auto;
+}
+
+.pick-box1 input{
+  padding: 10px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  border: none;
+}
+
+.pick-box2 button{
+  background-color: #363636;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 10px 12px;
+  margin: 0 auto;
+}
+
+.pick-box2 input{
+  padding: 10px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  border: none;
+}
+
+.battle-2-box button{
+  background-color: #363636;
+  border: none;
+  border-radius: 10px;
+  height: 100%;
+  color: white;
+  padding: 7px 9px;
+  margin: 0 auto;
+}
+
+.vs h1{
+  display: flex;
+  justify-content: center;
+  margin-top: 250px;
+}
+
+.lista-tittle h1{
+  display: flex;
+  justify-content: center;
+}

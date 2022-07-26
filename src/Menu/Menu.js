@@ -1,52 +1,37 @@
 import React from "react";
 import { Link, Outlet } from 'react-router-dom'
-import { useState } from "react";
-import { searchPokemon } from "../Api/Api"
+import Buscar from "../Buscar/Buscar";
+import "../index.css"
+
 
 const Menu = (props) => {
 
-    const[search, setSearch] = useState('')
-    const[pokemon, setPokemon] = useState()
-
-    const onChange=(e)=>{
-        setSearch(e.target.value)
-    }
-
-    const onClick = async (e) =>{
-        const data = searchPokemon(search)
-        setPokemon(data)
-    }
-
     return(
-        <div>
-            <div>
+        <div className="menu-container">
+            <div className="links">
+               <div className="link-pokemon">
                 <Link to='/pokemon'>
                     Pokemon
                 </Link>
-            </div>
-            <div>
+                </div>
+                <div className="link-lista">
                 <Link to='/lista'>
                     Lista
                 </Link>
-            </div>
-            <div>
+                </div>
+                <div className="link-combate">
                 <Link to='/combate'>
                     Combate
                 </Link>
-            </div>
-            <div>
+                </div>
+                <div className="link-historial">
                 <Link to='/historial'>
                     Historial
                 </Link>
+                </div>
             </div>
             <div>
-             
-            </div>
-            <div>
-                <input onChange={onChange}/>
-                <Link to='/pokemon'>
-                    <button onClick={onClick}>Buscar</button>
-                </Link>
+                <Buscar></Buscar>
             </div>
             <Outlet/>
         </div>

@@ -7,7 +7,7 @@ const Carta = (props) => {
   return (
     <div className="pokemon-card">
       <div className="pokemon-img-container">
-        <img
+        <img 
           src={pokemon.sprites.front_default}
           alt={pokemon.name}
           className="pokemon-img"
@@ -28,9 +28,6 @@ const Carta = (props) => {
               );
             })}
           </div>
-          <button className="pokemon-heart-btn">
-            <div className="pokemon-favorite"></div>
-          </button>
         </div>
       </div>
     </div>

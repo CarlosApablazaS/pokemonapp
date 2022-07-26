@@ -25,7 +25,7 @@ const Lista = (props) =>{
 
     return(
         <div>
-            <div>
+            <div className="lista-tittle">
                 <h1>Lista de Pokemones</h1>
             </div>
             <div className="card-container">
