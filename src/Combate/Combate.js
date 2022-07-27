@@ -5,7 +5,6 @@ import "../index.css"
 const Combate = (props) => {
 
     const[search, setSearch] =  useState()
-    const[pokemon, setPokemon] = useState()
 
     const[pokemon1, setPokemon1] = useState()
     const[pokemon2, setPokemon2] = useState()
@@ -27,34 +26,39 @@ const Combate = (props) => {
     const onClick1= async (e)=>{
         const data = await searchPokemon(search)
         setPokemon1(data)
-        console.log(data)
+        data.stats.map((stat)=>{
+            if(stat.stat.name == 'hp'){
+                setHp1(stat.base_stat)
+            }
+        })
+    
     }
-
     const onClick2 = async(e)=>{
         const data = await searchPokemon(search)
         setPokemon2(data)
-        console.log(data)
-    }
-
-    const attack1 = (dmg) => {
-        console.log('el pokemon 1 ataco' + dmg)
-        disableAttack1(true)
-        disableAttack2(false)
-        setHp2(hp2 - dmg)
-    }
-    const attack2 = (dmg) => {
-        console.log('el pokemon 2 ataco' + dmg)
-        disableAttack1(false)
-        disableAttack2(true)
-        setHp1(hp1 - dmg)
-    }
-
-    useEffect(() => {
         data.stats.map((stat) => {
-            if(stat.stat.name == 'hp')
-            setHp1(stat.base_stat)
+            if(stat.stat.name == 'hp'){
+                setHp2(stat.base_stat)
+            }
         })
-    },[])
+
+    }
+
+    const ataque_uno = async (e) => {
+        setDisableAttack1(true)
+        setDisableAttack2(false)
+        const dmg1 = pokemon1?.stats?.map(stat => stat.stat.name === 'attack')
+        console.log('El pokemon 1 ataco' + dmg1)
+        setHp2(hp2 - dmg1)
+    }
+
+    const ataque_dos = () =>{
+        setDisableAttack1(false)
+        setDisableAttack2(true)
+        const dmg2 = pokemon2.stats.find(stat => stat.stat.name === 'attack')
+        console.log('El pokemon 2 ataco' + dmg2)
+        setHp1(hp1 - dmg2.stat.base_stat)
+    }
 
     return(
         <div className="pokemon-battle-container">
@@ -64,7 +68,7 @@ const Combate = (props) => {
                     <div className="pick-box1">
                         <h3>Buscar primer Pokemon</h3>
                         <input onChange={onChange1} placeholder="Buscar Pokemon.."/>
-                        <button onClick={(e)=> onClick1(e)}>Elegir</button>
+                        <button onClick={()=> onClick1()}>Elegir</button>
                     </div>
                     <div>
                         <div className="battle-1-box">
@@ -76,12 +80,10 @@ const Combate = (props) => {
                             </div>}
                             <div>
                                 <div>
-                                    <button>Ataque</button>
-                                    <div>
-                                    {pokemon1.stats.map((stat) => {
-                                            return(<div></div>)
-                                        })}
-                                    </div>
+                                    <button
+                                        disabled={disableAttack2}
+                                        onClick={()=>{ataque_uno('attack')}}
+                                        >Atacar</button>
                                     Vida: {hp1}
                                 </div>
                             </div>
@@ -106,7 +108,12 @@ const Combate = (props) => {
                                 <div> </div>
                             </div>}
                             <div>
-                                <button>Ataque</button>
+                                <button
+                                    disabled={disableAttack1}
+                                    onClick={()=>{ataque_dos('attack')}}
+                                    > Atacar</button>
+                                Vida: {hp2}
+                                
                             </div>
                         </div>
                     </div>

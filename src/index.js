@@ -4,7 +4,6 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Menu from './Menu/Menu';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Pokemon from './Pokemon/Pokemon'
 import Lista from './Lista/Lista';
 import Combate from './Combate/Combate'
 import '@fontsource/roboto'
@@ -15,7 +14,6 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Menu/>}/>
-        <Route path='/pokemon' element={ <Pokemon/>}/>
         <Route path='/lista' element={<Lista/>}/>
         <Route path='/combate' element={<Combate/>}/>
       </Routes>

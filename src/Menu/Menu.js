@@ -10,9 +10,7 @@ const Menu = (props) => {
         <div className="menu-container">
             <div className="links">
                <div className="link-pokemon">
-                <Link to='/pokemon'>
-                    Pokemon
-                </Link>
+               
                 </div>
                 <div className="link-lista">
                 <Link to='/lista'>
